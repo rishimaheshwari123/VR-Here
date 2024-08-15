@@ -14,6 +14,7 @@ import ReactStars from "react-rating-stars-component";
 import ReviewDetails from "../components/core/Review Rating/ReviewDetails";
 import SevenDayMeal from "../components/core/SevenDayMeal";
 import Loading from "../components/common/Loading";
+import { Helmet } from "react-helmet-async";
 function SingleTifin() {
   const { token, user } = useSelector((state) => state.auth);
   const { slug } = useParams();
@@ -92,8 +93,31 @@ function SingleTifin() {
       </>
     );
   }
+
+  const schemaMarkup = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": tifin?.name || "Product Title",
+    "image": tifin?.images?.map(img => img.url) || tifin?.images[0]?.url,
+    "description":   `Tifin Center Near ${tifin?.Location[0]?.name}`,
+    "sku": tifin?.slug || "Product SKU",
+    "brand": "VR Here",
+   
+  };
+
   return (
     <div>
+      <Helmet>
+        <title>{tifin?.name || "Default Product Title"}</title>
+          <link rel="canonical" href={`https://vrhere.in/tifin/${tifin.slug}`} />
+        <meta property="og:title" content={tifin?.name || "Default Product Title"} />
+        <meta property="og:url" content={`https://vrhere.in/tifin/${tifin?.slug || 'product-id'}`} />
+        <meta name="keywords" content={tifin?.tag?.join(', ')} />
+        <meta property="og:image" content={tifin?.images?.[0]?.url || 'default-image-url.jpg'} />
+        <script type="application/ld+json">
+          {JSON.stringify(schemaMarkup)}
+        </script>
+      </Helmet>
       <NavbarContainer />
       {loading ? (
         <Loading />
