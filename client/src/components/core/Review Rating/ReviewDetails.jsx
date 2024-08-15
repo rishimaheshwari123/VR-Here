@@ -87,7 +87,7 @@ function ReviewDetails({ data, avrageRating }) {
         <div className="text-center mt-4">
           <button
             onClick={() => setShowAll(true)}
-            className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+            className="px-4 py-2 text-white bg-yellow-600 rounded hover:bg-black"
           >
             Show More
           </button>

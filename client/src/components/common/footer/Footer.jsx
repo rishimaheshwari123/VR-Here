@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="mb-6 md:mb-0">
             <img src={logo} alt="Logo" className="w-40 h-auto mb-4 md:mb-0" />
             <div className="flex space-x-4">
-              <Link
+              {/* <Link
                 to="#"
                 className="text-white text-xl hover:text-gray-400 transition"
               >
@@ -28,22 +28,25 @@ const Footer = () => {
                 className="text-white text-xl hover:text-gray-400 transition"
               >
                 <FaTwitter />
-              </Link>
+              </Link> */}
               <Link
-                to="#"
-                className="text-white text-xl hover:text-gray-400 transition"
+                target="_blank"
+                to="https://www.instagram.com/mahi_technocrafts?utm_source=qr&igsh=MWlscG85aHdvbjQxZw=="
+                className="text-white text-xl hover:text-yellow-600 transition"
               >
                 <FaInstagram />
               </Link>
               <Link
-                to="#"
-                className="text-white text-xl hover:text-gray-400 transition"
+                to="https://www.linkedin.com/company/mahi-technocrafts"
+                target="_blank"
+                className="text-white text-xl hover:text-yellow-600 transition"
               >
                 <FaLinkedin />
               </Link>
               <Link
-                to="#"
-                className="text-white text-xl hover:text-gray-400 transition"
+                target="_blank"
+                to="https://youtube.com/@mcawalarishigamingyt?si=xgoWmfSgSk3vCMZ6"
+                className="text-white text-xl hover:text-yellow-600 transition"
               >
                 <FaYoutube />
               </Link>

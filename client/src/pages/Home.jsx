@@ -4,6 +4,9 @@ import Footer from "../components/common/footer/Footer";
 import { allLocations } from "../service/operations/room";
 import { Link } from "react-router-dom";
 import Loading from "../components/common/Loading";
+import TimeLine from "../components/core/Timeline";
+import Last from "../components/core/Last";
+
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [location, setLocation] = useState([]);
@@ -137,6 +140,14 @@ const Home = () => {
           </div>
         </>
       )}
+
+      <div className="max-w-7xl mx-auto px-5 mt-10">
+        <TimeLine />
+      </div>
+      <br />
+      <div className="max-w-7xl mx-auto px-5 my-16">
+        <Last />
+      </div>
 
       <Footer />
     </div>
