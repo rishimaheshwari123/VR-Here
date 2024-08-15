@@ -42,7 +42,7 @@ const RoomCard = ({ room, view }) => {
           : "p-4 border rounded shadow"
       }`}
     >
-      <div className="h-[200px] w-[300px] md:h-[180px] md:w-[210px] lg:h-[200px] lg:w-[325px] mx-auto md:mx-0 shadow-lg shadow-yellow-600  ">
+      <div className="h-[200px]  mx-auto md:mx-0 shadow-lg shadow-yellow-600  ">
         <img
           src={room?.images?.[0]?.url}
           alt={`Image of ${room?.pgName}`}
