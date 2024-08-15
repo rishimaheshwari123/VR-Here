@@ -316,6 +316,8 @@ export function createContact(data) {
 
     } finally {
       toast.dismiss(toastId);
+      dispatch(setLoading(false));
+
     }
   };
 }
