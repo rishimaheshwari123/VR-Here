@@ -4,6 +4,7 @@ import Footer from "../components/common/footer/Footer";
 import { allLocations } from "../service/operations/room";
 import { Link } from "react-router-dom";
 import Loading from "../components/common/Loading";
+import { Helmet } from "react-helmet-async";
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [location, setLocation] = useState([]);
@@ -24,7 +25,36 @@ const Home = () => {
     fetchLocations();
   }, []);
 
+
+  const schemaMarkup = {
+    "@context": "https://schema.org/",
+    "@type": "Website",
+    "name": "Wear VR Here ",
+    "url": "https://vrhere.in/",
+    "description": "Best Deals On PGs and Tifin Near Vit Bhopal We have tie ups with PGs in every city near vit bhopal . We make sure that You get the best deals for PGs and tifin. City : Ashta,Kothri, Sehore.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "VR Here",
+      "url": "https://vrhere.in/"
+    },
+   
+  }
   return (
+    <>
+
+    <Helmet>
+    <title>VR Here - Find My PG</title>
+    <meta name="description" content="Best Deals On PGs and Tifin Near Vit Bhopal We have tie ups with PGs in every city near vit bhopal . We make sure that You get the best deals for PGs and tifin. City : Ashta,Kothri, Sehore." />
+    <meta property="og:title" content="VR Here - Find My PG" />
+    <meta property="og:description" content="Best Deals On PGs and Tifin Near Vit Bhopal We have tie ups with PGs in every city near vit bhopal . We make sure that You get the best deals for PGs and tifin. City : Ashta,Kothri, Sehore." />
+    <meta property="og:url" content="https://vrhere.in/" />
+    <meta property="og:type" content="website" />
+    <meta name="keywords" content="vr here, find my pg, kothari kalan, ashta,sehore, vit bhopal near, pg tifin, best rates, digital platform pg and tifin" />
+    <meta property="og:image" content="https://vrhere.in/logo.png" />
+    <script type="application/ld+json">
+      {JSON.stringify(schemaMarkup)}
+    </script>
+  </Helmet>
     <div className="bg-orange-50">
       <Navbar />
       {loading ? (
@@ -140,6 +170,8 @@ const Home = () => {
 
       <Footer />
     </div>
+    </>
+  
   );
 };
 

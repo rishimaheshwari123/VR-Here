@@ -33,6 +33,7 @@ import CourseReviewModal from "../../components/core/Review Rating/ReviewRating"
 import PhoneModal from "../../components/common/PhoneModal";
 import ReviewDetails from "../../components/core/Review Rating/ReviewDetails";
 import Loading from "../../components/common/Loading";
+import { Helmet } from "react-helmet-async";
 const SingleRoom = () => {
   const { slug } = useParams();
   const [room, setRoom] = useState(null);
@@ -104,9 +105,32 @@ const SingleRoom = () => {
     }
   }, [room]);
 
+  
+
+  const schemaMarkup = {
+    "@context": "https://schema.org/",
+    "@type": "room",
+    "name": room?.pgName || "room Title",
+    "image": room?.images?.map(img => img.url) || room?.images?.[0]?.url,
+    "description": room?.desc || "room Description",
+    "sku": room?.slug || "room SKU",
+    "brand": "VR Here",
+    "offers": {
+      "@type": "Offer",
+      "url": `https://vrhere.in/single-room/${room?.slug || 'room-id'}`,
+      "priceCurrency": "INR",
+      "price": room?.price || "0",
+      "itemCondition": "https://schema.org/NewCondition",
+      "availability": "https://schema.org/InStock"
+    }
+  };
+
+
   if (loading) {
     return (
       <>
+
+
         <NavbarContainer />
 
         <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
@@ -293,6 +317,20 @@ const SingleRoom = () => {
 
   return (
     <div>
+    <Helmet>
+        <title>{room?.pgName || "Default PG Rooms Title"}</title>
+          <link rel="canonical" href={`https://vrhere.in/single-room/${room.slug}`} />
+        <meta name="description" content={room?.desc || "Default PG Rooms description"} />
+        <meta property="og:title" content={room?.pgName || "Default PG Rooms Title"} />
+        <meta property="og:description" content={room?.desc || "Default PG Rooms description"} />
+        <meta property="og:url" content={`https://vrhere.in/single-room/${room?.id || 'PG Rooms-id'}`} />
+        <meta property="og:type" content="PG" />
+        <meta name="keywords" content={room?.tag?.join(', ')} />
+        <meta property="og:image" content={room?.images?.[0]?.url || 'default-image-url.jpg'} />
+        <script type="application/ld+json">
+          {JSON.stringify(schemaMarkup)}
+        </script>
+      </Helmet>
       <NavbarContainer />
       {loading ? (
         <Loading />
