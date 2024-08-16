@@ -123,7 +123,7 @@ const Home = () => {
                               </div>
                             </div>
                           ))}
-                          <p className="text-center lg:text-[16px] lg:text-xl mt-4">
+                          <p className="text-center  lg:text-xl mt-4">
                             {currElem?.name}/PG
                           </p>
                         </Link>

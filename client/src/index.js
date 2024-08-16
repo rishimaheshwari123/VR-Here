@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider } from 'react-helmet-async';
 
 import App from "./App";
 import { ToastContainer } from "react-toastify";
@@ -11,8 +11,8 @@ import { BrowserRouter } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <HelmetProvider>
-  {/* // <React.StrictMode> */}
+  <HelmetProvider>
+    {/* // <React.StrictMode> */}
     <Provider store={store}>
 
       <BrowserRouter>
@@ -20,7 +20,7 @@ root.render(
         <App />
       </BrowserRouter>
     </Provider>
-  {/* // </React.StrictMode> */}
+    {/* // </React.StrictMode> */}
   </HelmetProvider>
 
 );
