@@ -114,7 +114,7 @@ const Home = () => {
                               <img
                                 src={image?.url}
                                 alt="not found"
-                                className="w-22 h-22 md:w-48 md:h-48 rounded-full shadow-yellow-500 shadow-xl"
+                                className="w-20 h-20 md:w-48 md:h-48 rounded-full shadow-yellow-500 shadow-xl"
                               />
                               <div className="absolute inset-0 flex items-center justify-center opacity-0 bg-black bg-opacity-50 group-hover:opacity-100 transition-opacity duration-300 rounded-full">
                                 <p className="text-white   lg:text-xl text-center">
@@ -154,7 +154,7 @@ const Home = () => {
                               <img
                                 src={image?.url}
                                 alt="not found"
-                                className="w-24 h-24 md:w-48 md:h-48 rounded-full shadow-yellow-500 shadow-xl"
+                                className="w-20 h-20 md:w-48 md:h-48 rounded-full shadow-yellow-500 shadow-xl"
                               />
                               <div className="absolute inset-0 flex items-center justify-center opacity-0 bg-black bg-opacity-50 group-hover:opacity-100 transition-opacity duration-300 rounded-full">
                                 <p className="text-white lg:text-xl text-center">
