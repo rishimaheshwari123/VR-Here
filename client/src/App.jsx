@@ -19,6 +19,8 @@ import TifinForm from "./pages/tifin/MyKitchen";
 import SingleRoom from "./pages/room/SingleRoom";
 import SingleTifin from "./pages/SingleTifin";
 import Contact from "./pages/Contact";
+import TermsAndConditions from "./pages/Term&Condition";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function App() {
   return (
@@ -34,6 +36,10 @@ function App() {
         <Route path="/tifin-center" element={<Tifin />} />
         <Route path="/tifin-center/:id" element={<Tifin />} />
         <Route path="/contact-us" element={<Contact />} />
+        
+        <Route path="/term_condition" element={<TermsAndConditions />} />
+        <Route path="/privacy_policy" element={<PrivacyPolicy />} />
+
         <Route path="*" element={<Error />} />
 
         <Route

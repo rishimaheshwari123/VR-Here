@@ -112,42 +112,26 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4 text-xl">Account</h3>
+              <h3 className="font-semibold mb-4 text-xl">Usefull Links</h3>
 
               <ul>
                 <li className="mb-2">
                   <Link
-                    to="/profile"
+                    to="/term_condition"
                     className="hover:text-gray-400 transition-colors"
                   >
-                    Profile
+                    Term And Conditions
                   </Link>
                 </li>
                 <li className="mb-2">
                   <Link
-                    to="/my-account"
+                    to="/privacy_policy"
                     className="hover:text-gray-400 transition-colors"
                   >
-                    My Account
+                 Privacy Policy
                   </Link>
                 </li>
-                <li className="mb-2">
-                  <Link
-                    to="/preferences"
-                    className="hover:text-gray-400 transition-colors"
-                  >
-                    Preferences
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <Link
-                    to="/purchase"
-                    className="hover:text-gray-400 transition-colors"
-                  >
-                    Purchase
-                  </Link>
-                </li>
-              </ul>
+                           </ul>
             </div>
           </div>
           <div className="mt-6 md:mt-0">
