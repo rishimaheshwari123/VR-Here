@@ -124,7 +124,7 @@ const Home = () => {
                             </div>
                           ))}
                           <p className="text-center  lg:text-xl mt-4">
-                            {currElem?.name}/PG
+                            {currElem?.name}
                           </p>
                         </Link>
                       ))}
@@ -163,9 +163,7 @@ const Home = () => {
                               </div>
                             </div>
                           ))}
-                          <p className="text-center mt-4">
-                            {currElem?.name}/Tifin
-                          </p>
+                          <p className="text-center mt-4">{currElem?.name}</p>
                         </Link>
                       ))}
                     </>
