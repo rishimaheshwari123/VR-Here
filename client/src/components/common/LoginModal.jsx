@@ -79,7 +79,6 @@ const LoginModal = ({ show, onClose, revieModal }) => {
           {isSignup ? "Sign Up" : "Login"}
         </h2>
         <Link
-          to={"/"}
           onClick={onClose}
           className="absolute top-2 right-2 text-gray-900 hover:text-gray-700 text-2xl"
         >
