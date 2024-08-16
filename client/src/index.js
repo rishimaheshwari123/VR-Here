@@ -9,6 +9,9 @@ import { Provider } from "react-redux";
 import store from "./redux/reducer/store";
 import { BrowserRouter } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <HelmetProvider>
@@ -18,6 +21,8 @@ root.render(
       <BrowserRouter>
         <ToastContainer />
         <App />
+        <Analytics />
+        <SpeedInsights />
       </BrowserRouter>
     </Provider>
     {/* // </React.StrictMode> */}

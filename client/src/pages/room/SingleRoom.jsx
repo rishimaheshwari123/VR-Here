@@ -109,7 +109,7 @@ const SingleRoom = () => {
 
   const schemaMarkup = {
     "@context": "https://schema.org/",
-    "@type": "room",
+    "@type": "Accommodation",
     "name": room?.pgName || "room Title",
     "image": room?.images?.map(img => img.url) || room?.images?.[0]?.url,
     "description": room?.desc || "room Description",
@@ -119,7 +119,7 @@ const SingleRoom = () => {
       "@type": "Offer",
       "url": `https://vrhere.in/single-room/${room?.slug || 'room-id'}`,
       "priceCurrency": "INR",
-      "price": room?.price || "0",
+      "price": room?.price || "300",
       "itemCondition": "https://schema.org/NewCondition",
       "availability": "https://schema.org/InStock"
     }
