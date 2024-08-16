@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider } from 'react-helmet-async';
 
 import App from "./App";
 import { ToastContainer } from "react-toastify";
@@ -14,8 +14,8 @@ import { SpeedInsights } from "@vercel/speed-insights/react"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <HelmetProvider>
-  {/* // <React.StrictMode> */}
+  <HelmetProvider>
+    {/* // <React.StrictMode> */}
     <Provider store={store}>
 
       <BrowserRouter>
@@ -25,7 +25,7 @@ root.render(
         <SpeedInsights />
       </BrowserRouter>
     </Provider>
-  {/* // </React.StrictMode> */}
+    {/* // </React.StrictMode> */}
   </HelmetProvider>
 
 );

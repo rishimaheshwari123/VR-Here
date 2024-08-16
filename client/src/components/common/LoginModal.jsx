@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { userLogin, userSignUp } from "../../service/operations/user";
+import { RxCross2 } from "react-icons/rx";
 
 const LoginModal = ({ show, onClose, revieModal }) => {
   const [formData, setFormData] = useState({
@@ -78,13 +79,12 @@ const LoginModal = ({ show, onClose, revieModal }) => {
         <h2 className="text-2xl font-bold text-center mb-6">
           {isSignup ? "Sign Up" : "Login"}
         </h2>
-        <Link
-          to={"/"}
-          onClick={onClose}
-          className="absolute top-2 right-2 text-gray-900 hover:text-gray-700 text-2xl"
+        <div
+          onClick={() => onClose()}
+          className="absolute cursor-pointer top-2 right-2 text-gray-900 hover:text-gray-700 text-2xl"
         >
-          &times;
-        </Link>
+          <RxCross2 />
+        </div>
         <form className="space-y-4" onSubmit={handleOnSubmit}>
           {isSignup && (
             <>

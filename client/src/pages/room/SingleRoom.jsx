@@ -105,32 +105,27 @@ const SingleRoom = () => {
     }
   }, [room]);
 
-  
-
   const schemaMarkup = {
     "@context": "https://schema.org/",
     "@type": "Accommodation",
-    "name": room?.pgName || "room Title",
-    "image": room?.images?.map(img => img.url) || room?.images?.[0]?.url,
-    "description": room?.desc || "room Description",
-    "sku": room?.slug || "room SKU",
-    "brand": "VR Here",
-    "offers": {
+    name: room?.pgName || "room Title",
+    image: room?.images?.map((img) => img.url) || room?.images?.[0]?.url,
+    description: room?.desc || "room Description",
+    sku: room?.slug || "room SKU",
+    brand: "VR Here",
+    offers: {
       "@type": "Offer",
-      "url": `https://vrhere.in/single-room/${room?.slug || 'room-id'}`,
-      "priceCurrency": "INR",
-      "price": room?.price || "300",
-      "itemCondition": "https://schema.org/NewCondition",
-      "availability": "https://schema.org/InStock"
-    }
+      url: `https://vrhere.in/single-room/${room?.slug || "room-id"}`,
+      priceCurrency: "INR",
+      price: room?.price || "300",
+      itemCondition: "https://schema.org/NewCondition",
+      availability: "https://schema.org/InStock",
+    },
   };
-
 
   if (loading) {
     return (
       <>
-
-
         <NavbarContainer />
 
         <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
@@ -317,16 +312,34 @@ const SingleRoom = () => {
 
   return (
     <div>
-    <Helmet>
+      <Helmet>
         <title>{room?.pgName || "Default PG Rooms Title"}</title>
-          <link rel="canonical" href={`https://vrhere.in/single-room/${room.slug}`} />
-        <meta name="description" content={room?.desc || "Default PG Rooms description"} />
-        <meta property="og:title" content={room?.pgName || "Default PG Rooms Title"} />
-        <meta property="og:description" content={room?.desc || "Default PG Rooms description"} />
-        <meta property="og:url" content={`https://vrhere.in/single-room/${room?.id || 'PG Rooms-id'}`} />
+        <link
+          rel="canonical"
+          href={`https://vrhere.in/single-room/${room.slug}`}
+        />
+        <meta
+          name="description"
+          content={room?.desc || "Default PG Rooms description"}
+        />
+        <meta
+          property="og:title"
+          content={room?.pgName || "Default PG Rooms Title"}
+        />
+        <meta
+          property="og:description"
+          content={room?.desc || "Default PG Rooms description"}
+        />
+        <meta
+          property="og:url"
+          content={`https://vrhere.in/single-room/${room?.id || "PG Rooms-id"}`}
+        />
         <meta property="og:type" content="PG" />
-        <meta name="keywords" content={room?.tag?.join(', ')} />
-        <meta property="og:image" content={room?.images?.[0]?.url || 'default-image-url.jpg'} />
+        <meta name="keywords" content={room?.tag?.join(", ")} />
+        <meta
+          property="og:image"
+          content={room?.images?.[0]?.url || "default-image-url.jpg"}
+        />
         <script type="application/ld+json">
           {JSON.stringify(schemaMarkup)}
         </script>
@@ -404,7 +417,7 @@ const SingleRoom = () => {
                   </button>
                 )}
               </div>
-              <div className="grid grid-cols-3 lg:grid-cols-3 gap-4 px-5">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5">
                 {[
                   { label: "Deposit Amount", value: room?.depositeAmount },
                   {

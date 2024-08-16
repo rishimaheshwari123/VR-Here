@@ -9,7 +9,7 @@ const Last = () => {
           <MdHomeWork size={42} />
         </div>
         <div>
-          <p className="text-yellow-600 font-bold text-3xl">
+          <p className="text-yellow-600 text-center font-bold text-3xl">
             Best Deals On PGs and Tifin Near Vit Bhopal with VR Here
           </p>
         </div>
