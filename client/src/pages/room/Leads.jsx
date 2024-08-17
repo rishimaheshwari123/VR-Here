@@ -6,24 +6,26 @@ import { useParams } from "react-router-dom";
 const Leads = () => {
   const [leads, setLeads] = useState([]);
   const { token, user } = useSelector((state) => state.auth);
-  const {vendorName} = useParams()
+  const { vendorName } = useParams();
 
   const fetchLeads = async (token) => {
     try {
-      console.log(vendorName)
+      console.log(vendorName);
       const response = await roomLeads(token);
-      setLeads(response);
+      setLeads(response || []); // Ensure leads is set to an empty array if response is undefined
     } catch (error) {
       console.error("Failed to fetch leads:", error);
     }
   };
 
   useEffect(() => {
-    fetchLeads(token);
+    if (token) {
+      fetchLeads(token);
+    }
   }, [token]);
 
   // Display only the first 4 leads
-  const displayedLeads = leads;
+  const displayedLeads = leads || []; // Default to an empty array if leads is undefined
 
   // Function to format phone numbers
   const formatPhoneNumber = (number) => {
@@ -76,10 +78,10 @@ const Leads = () => {
               displayedLeads.map((lead, index) => (
                 <tr key={index} className="border-b">
                   <td className="py-3 px-4 text-gray-700">
-                    {lead.name || "N/A"}
+                    {lead?.name || "N/A"}
                   </td>
                   <td className="py-3 px-4 text-gray-700">
-                    {formatPhoneNumber(lead.number)}
+                    {formatPhoneNumber(lead?.number)}
                   </td>
                 </tr>
               ))
@@ -93,8 +95,6 @@ const Leads = () => {
           </tbody>
         </table>
       </div>
-
-      {/* Contact for Full Details Section */}
     </div>
   );
 };

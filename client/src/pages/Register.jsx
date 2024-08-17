@@ -105,7 +105,7 @@ function Register() {
                     Select Business Type
                   </option>
                   <option value="room">Room</option>
-                  <option value="tiffin">Tiffin</option>
+                  <option value="tifin">Tiffin</option>
                 </select>
               </div>
               <div className="mt-2">

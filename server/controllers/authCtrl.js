@@ -8,7 +8,7 @@ const registerCtrl = async (req, res) => {
   try {
     const { name, email, password, contact, role } = req.body;
 
-    if (!name || !email || !password  || !contact ) {
+    if (!name || !email || !password || !contact) {
       return res.status(403).send({
         success: false,
         message: "All Fields are required",
@@ -62,7 +62,7 @@ const registerCtrl = async (req, res) => {
 };
 
 
-const subscribe =  async (req, res) => {
+const subscribe = async (req, res) => {
   try {
     const { userId, months } = req.body;
 
@@ -155,5 +155,20 @@ const loginCtrl = async (req, res) => {
 };
 
 
-
-module.exports = { registerCtrl, loginCtrl,subscribe };
+const getVendorById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await authModel.findById(id);
+    return res.status(200).json({
+      success: true,
+      user,
+    });
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({
+      success: false,
+      message: "Error in getting vendor",
+    });
+  }
+};
+module.exports = { registerCtrl, loginCtrl, subscribe, getVendorById };

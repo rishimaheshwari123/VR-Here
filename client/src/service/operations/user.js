@@ -12,7 +12,7 @@ const {
   CHECK_RATING_API,
 } = ratingEndpoints;
 
-const { SIGNUP_API, LOGIN_API, FETCH_PROFILE, USER_LOGIN_API, USER_SIGNUP_API, CONTACT } = userEndpoints;
+const { SIGNUP_API, LOGIN_API, FETCH_PROFILE, USER_LOGIN_API, USER_SIGNUP_API, CONTACT, GET_VENDOR } = userEndpoints;
 
 export function login(email, password, navigate) {
   return async (dispatch) => {
@@ -141,6 +141,20 @@ export function userSignUp(formData) {
     }
   };
 }
+
+export const findVendor = async ({ id }) => {
+  try {
+    const response = await apiConnector("GET", `${GET_VENDOR}/${id}`);
+    if (!response?.data?.success) {
+      throw new Error(response?.data?.message);
+
+    }
+    return response.data.user;
+  } catch (error) {
+    console.error(error);
+    toast.error(error?.message || "An error occurred");
+  }
+};
 
 // Rating Review
 

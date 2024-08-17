@@ -1,11 +1,12 @@
 const express = require("express")
-const { registerCtrl, loginCtrl,subscribe } = require("../controllers/authCtrl")
+const { registerCtrl, loginCtrl, subscribe, getVendorById } = require("../controllers/authCtrl")
 const { userRegister, userLogin } = require("../controllers/userCtrl")
 const router = express.Router()
 
 
 router.post("/login", loginCtrl)
 router.post("/register", registerCtrl)
+router.get("/get/:id", getVendorById)
 router.post("/subscribe", subscribe)
 
 

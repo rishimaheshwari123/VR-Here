@@ -9,9 +9,11 @@ export const userEndpoints = {
     // user
     USER_LOGIN_API: BASE_URL + "/auth/userlogin",
     USER_SIGNUP_API: BASE_URL + "/auth/userregister",
+    GET_VENDOR: BASE_URL + "/auth/get",
 
     FETCH_PROFILE: BASE_URL + "/auth/fetchMyProfile",
     CONTACT: BASE_URL + "/contact/create",
+
 
 }
 
