@@ -142,7 +142,7 @@ const loginCtrl = async (req, res) => {
     } else {
       return res.status(401).json({
         success: false,
-        message: `Password is incorrect`,
+        message: `Email & Password is incorrect`,
       });
     }
   } catch (error) {
@@ -171,4 +171,6 @@ const getVendorById = async (req, res) => {
     });
   }
 };
+
+
 module.exports = { registerCtrl, loginCtrl, subscribe, getVendorById };

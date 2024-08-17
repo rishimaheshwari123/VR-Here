@@ -26,6 +26,7 @@ export const roomEndpoints = {
     VISIT_API: BASE_URL + "/visits",
 
     ROOM_LEADING: BASE_URL + "/room/leading",
+    ADD_LEADING: BASE_URL + "/room/addleads",
     FIND_ROOM_API: BASE_URL + "/room",
     ALL_ROOM: BASE_URL + "/room/getAll",
     SINGLE_ROOM: BASE_URL + "/room/get",

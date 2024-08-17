@@ -53,7 +53,7 @@ const Leads = () => {
             To get more leads and detailed information, please contact us.
           </p>
           <a
-            href="support@mahitechnocrafts.in"
+            href="vrhere.in@gmail.com"
             className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
           >
             Contact Us

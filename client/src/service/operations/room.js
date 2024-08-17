@@ -8,6 +8,7 @@ const {
   IMAGE_UPLOAD,
   FIND_ROOM_API,
   ROOM_LEADING,
+  ADD_LEADING,
   ROOM_UPDATE_API,
   VISIT_API,
   ALL_ROOM,
@@ -70,6 +71,31 @@ export const CreateRooms = async (formData, token) => {
 
   toast.dismiss(toastId);
 };
+export const AddLeading = async (formData) => {
+  console.log(formData);
+  const toastId = toast.loading("Loading...");
+  try {
+    // Make the API call
+    const response = await apiConnector("POST", ADD_LEADING, formData, {
+      "Content-Type": "multipart/form-data",
+
+    });
+
+    console.log("CREATE ROOM API RESPONSE............", response);
+
+    if (!response?.data?.success) {
+      throw new Error("Could not ADD_LEADING details");
+    }
+
+    toast.success("Send Enquiry Deatils successfully");
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+    console.log(error);
+  }
+
+  toast.dismiss(toastId);
+};
+
 export const updateRoom = async (formData, token) => {
   console.log(formData);
   let result = [];

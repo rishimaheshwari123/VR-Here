@@ -5,7 +5,7 @@ import NavbarContainer from "../components/common/Navbar/Navbar";
 import Footer from "../components/common/footer/Footer";
 import { createContact } from "../service/operations/user";
 import Loading from "../components/common/Loading";
-import { FaInstagram, FaLinkedin, FaPhone, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaPhone, FaYoutube ,FaFacebook } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -66,7 +66,7 @@ const Contact = () => {
                   <span className="px-4 py-3 bg-yellow-600 rounded-md  text-xl">
                     <MdEmail />
                   </span>
-                  <span>support@mahitechnocrafts.in</span>
+                  <span>vrhere.in@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="px-4 py-3 bg-yellow-600 rounded-md  text-xl">
@@ -82,6 +82,13 @@ const Contact = () => {
                     className="text-black text-xl hover:text-yellow-600 transition"
                   >
                     <FaInstagram size={28} />
+                  </Link>
+                  <Link
+                    target="_blank"
+                    to="https://www.facebook.com/profile.php?id=61564583516735&mibextid=ZbWKwL"
+                    className="text-black text-xl hover:text-yellow-600 transition"
+                  >
+                    <FaFacebook size={28} />
                   </Link>
                   <Link
                     to="https://www.linkedin.com/company/mahi-technocrafts"

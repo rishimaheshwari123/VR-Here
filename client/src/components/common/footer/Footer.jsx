@@ -31,10 +31,17 @@ const Footer = () => {
               </Link> */}
               <Link
                 target="_blank"
-                to="https://www.instagram.com/mahi_technocrafts?utm_source=qr&igsh=MWlscG85aHdvbjQxZw=="
+                to="https://www.instagram.com/vrhere.in"
                 className="text-white text-xl hover:text-yellow-600 transition"
               >
                 <FaInstagram />
+              </Link>
+              <Link
+                target="_blank"
+                to="https://www.facebook.com/profile.php?id=61564583516735&mibextid=ZbWKwL"
+                className="text-white text-xl hover:text-yellow-600 transition"
+              >
+                <FaFacebook />
               </Link>
               <Link
                 to="https://www.linkedin.com/company/mahi-technocrafts"

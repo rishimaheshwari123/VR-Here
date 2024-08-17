@@ -15,6 +15,7 @@ import ReviewDetails from "../components/core/Review Rating/ReviewDetails";
 import SevenDayMeal from "../components/core/SevenDayMeal";
 import Loading from "../components/common/Loading";
 import { Helmet } from "react-helmet-async";
+import EnquiryForm from "../components/room/EnquiryForm";
 function SingleTifin() {
   const { token, user } = useSelector((state) => state.auth);
   const { slug } = useParams();
@@ -26,7 +27,10 @@ function SingleTifin() {
   const [phoneModal, setPhoneModal] = useState(false);
   const [alreadyRating, setAlreadyRating] = useState(false);
   const [ratingData, setUserData] = useState({});
+  const [enquiryForm, setQnquiryForm] = useState(false);
 
+  const openModal = () => setQnquiryForm(true);
+  const closeModal = () => setQnquiryForm(false);
   const reviewAdd = () => {
     if (token) {
       setReviewModal(true);
@@ -189,6 +193,9 @@ function SingleTifin() {
                   </span>
                 </p>
 
+
+<div className=" flex gap-3">
+
                 <div className="my-5">
                   {token ? (
                     <button className="px-5  py-2 bg-transparent rounded-full border-2 text-red-600 hover:border-red-600 hover:text-black flex items-center space-x-2">
@@ -205,6 +212,24 @@ function SingleTifin() {
                     </button>
                   )}
                 </div>
+
+                <div className="p-6">
+                  <button
+                    onClick={openModal}
+                    className="inline-flex text-[14px] items-center lg:px-4 py-2 px-2 border border-transparent -base font-medium rounded-md shadow-sm text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  >
+                    Send Enquiry
+                  </button>
+                  {enquiryForm && (
+                    <EnquiryForm
+                      tifinId={tifin._id} // Replace with actual roomId
+                      // tifinId="exampleTifinId" // Replace with actual tifinId
+                      isOpen={enquiryForm}
+                      setModal={closeModal}
+                    />
+                  )}
+                </div>
+</div>
               </div>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5">
                 {[

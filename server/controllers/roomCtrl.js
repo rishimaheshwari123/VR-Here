@@ -144,30 +144,39 @@ const createRoomCtrl = async (req, res) => {
 
 const addLeading = async (req, res) => {
   const { roomId, name, number, vendorName, tifinId } = req.body;
-
+console.log(req.body)
   try {
     let data = [];
     if (vendorName === "room") {
       data = await roomModel.findById(roomId);
+      console.log(data)
+      const newLeading = { name, number };
+      data.leading.push(newLeading);
+    await data.save();
+
     } else {
       data = await tifinModel.findById(tifinId);
+      console.log(data)
+      const newLeading = { name, number };
+      data.leading.push(newLeading);
+    await data.save();
+
     }
 
-    if (!room) {
+    if (!data) {
       return res
         .status(404)
         .json({ success: false, message: "Room not found" });
     }
 
-    const newLeading = { name, number };
-    room.leading.push(newLeading);
+  
 
-    await room.save();
 
     res
       .status(200)
       .json({ success: true, message: "Leading added successfully", data });
   } catch (error) {
+    console.log(error)
     res.status(500).json({ success: false, message: "Server error", error });
   }
 };

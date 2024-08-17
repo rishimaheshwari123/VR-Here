@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
         <title>Privacy Policy - VR Here</title>
         <meta
           name="description"
-          content="Explore the Privacy Policy of VR Here, your trusted platform for PG room rentals and tiffin services. Learn how we collect, use, and protect your personal information, and understand your rights as a user."
+          content="Explore the Privacy Policy of VR Here at vrhere.in, your trusted platform for PG room rentals and tiffin services. Learn how we collect, use, and protect your personal information, and understand your rights as a user."
         />
       </Helmet>
       <div className="container mx-auto px-4 py-8">
@@ -23,14 +23,14 @@ const PrivacyPolicy = () => {
             reliable PG room rentals and tiffin services. Your privacy is
             critically important to us. This Privacy Policy outlines how we
             collect, use, and safeguard your personal information when you use
-            our services.
+            our services at <strong>vrhere.in</strong>.
           </p>
         </section>
         <section className="mb-6">
           <h2 className="text-2xl font-semibold mb-2">2. Information We Collect</h2>
           <p>
             At VR Here, we collect various types of information to provide you
-            with a seamless experience. This includes:
+            with a seamless experience on <strong>vrhere.in</strong>. This includes:
           </p>
           <ul className="list-disc list-inside ml-6">
             <li>
@@ -77,7 +77,7 @@ const PrivacyPolicy = () => {
             employ advanced security measures, including encryption and
             firewalls, to safeguard your data against unauthorized access,
             alteration, or disclosure. We continuously review our security
-            practices to ensure that your data is protected at all times.
+            practices to ensure that your data is protected at all times on <strong>vrhere.in</strong>.
           </p>
         </section>
         <section className="mb-6">
@@ -101,10 +101,10 @@ const PrivacyPolicy = () => {
           <p className="mt-2">
             To exercise any of these rights, please contact us at{" "}
             <a
-              href="mailto:support@mahitechnocrafts.in"
+              href="mailto:vrhere.in@gmail.com"
               className="text-blue-500"
             >
-              support@mahitechnocrafts.in
+              vrhere.in@gmail.com
             </a>
             .
           </p>
@@ -115,7 +115,7 @@ const PrivacyPolicy = () => {
             We may update our Privacy Policy from time to time to reflect
             changes in our practices or legal requirements. We encourage you to
             review this policy periodically to stay informed about how we are
-            protecting your information.
+            protecting your information on <strong>vrhere.in</strong>.
           </p>
         </section>
         <section className="mb-6">
@@ -125,10 +125,10 @@ const PrivacyPolicy = () => {
             the way we handle your information, please don't hesitate to reach
             out to us. You can contact us via email at{" "}
             <a
-              href="mailto:support@mahitechnocrafts.in"
+              href="mailto:vrhere.in@gmail.com"
               className="text-blue-500"
             >
-              support@mahitechnocrafts.in
+              vrhere.in@gmail.com
             </a>{" "}
             or by phone at{" "}
             <a href="tel:+916267144122" className="text-blue-500">

@@ -17,7 +17,6 @@ import { BiMaleFemale } from "react-icons/bi";
 import { ImPower } from "react-icons/im";
 import { RxCross2, RxCheck } from "react-icons/rx";
 import ReactStars from "react-rating-stars-component";
-
 import {
   FaWifi,
   FaBatteryFull,
@@ -34,6 +33,7 @@ import PhoneModal from "../../components/common/PhoneModal";
 import ReviewDetails from "../../components/core/Review Rating/ReviewDetails";
 import Loading from "../../components/common/Loading";
 import { Helmet } from "react-helmet-async";
+import EnquiryForm from "../../components/room/EnquiryForm";
 const SingleRoom = () => {
   const { slug } = useParams();
   const [room, setRoom] = useState(null);
@@ -46,6 +46,11 @@ const SingleRoom = () => {
   const [phoneModal, setPhoneModal] = useState(false);
   const [alreadyRating, setAlreadyRating] = useState(false);
   const [ratingData, setUserData] = useState({});
+
+  const [enquiryForm, setQnquiryForm] = useState(false);
+
+  const openModal = () => setQnquiryForm(true);
+  const closeModal = () => setQnquiryForm(false);
 
   const reviewAdd = () => {
     if (token) {
@@ -401,22 +406,42 @@ const SingleRoom = () => {
                 </p>
               </div>
 
-              <div className="my-5 px-5">
-                {token ? (
-                  <button className="px-5  py-2 bg-transparent rounded-full border-2 text-red-600 hover:border-red-600 hover:text-black flex items-center space-x-2">
-                    <FaPhone className="w-5 h-5" />
-                    <span>{room?.vendor?.contact}</span>
-                  </button>
-                ) : (
+              <div className=" flex gap-4">
+                <div className="my-5 px-2 lg:px-5">
+                  {token ? (
+                    <button className="px-5  py-2 bg-transparent rounded-full border-2 text-red-600 hover:border-red-600 hover:text-black flex items-center space-x-2">
+                      <FaPhone className="w-5 h-5" />
+                      <span>{room?.vendor?.contact}</span>
+                    </button>
+                  ) : (
+                    <button
+                      className="px-5 py-2 bg-transparent rounded-full border-2 text-red-600 hover:border-red-600 hover:text-black flex items-center space-x-2"
+                      onClick={() => setPhoneModal(true)}
+                    >
+                      <FaPhone className="w-5 h-5" />
+                      <span>Phone No</span>
+                    </button>
+                  )}
+                </div>
+
+                <div className="p-6">
                   <button
-                    className="px-5 py-2 bg-transparent rounded-full border-2 text-red-600 hover:border-red-600 hover:text-black flex items-center space-x-2"
-                    onClick={() => setPhoneModal(true)}
+                    onClick={openModal}
+                    className="inline-flex text-[14px] items-center lg:px-4 py-2 px-2 border border-transparent -base font-medium rounded-md shadow-sm text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
-                    <FaPhone className="w-5 h-5" />
-                    <span>Phone No</span>
+                    Send Enquiry
                   </button>
-                )}
+                  {enquiryForm && (
+                    <EnquiryForm
+                      roomId={room._id} // Replace with actual roomId
+                      // tifinId="exampleTifinId" // Replace with actual tifinId
+                      isOpen={enquiryForm}
+                      setModal={closeModal}
+                    />
+                  )}
+                </div>
               </div>
+
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 px-5">
                 {[
                   { label: "Deposit Amount", value: room?.depositeAmount },
