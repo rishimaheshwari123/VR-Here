@@ -231,11 +231,15 @@ const updateRoomCtrl = async (req, res) => {
   try {
     const updateData = req.body;
 
-    // Parse images if provided as a string
-    if (updateData.images && typeof updateData.images === "string") {
-      updateData.images = JSON.parse(updateData.images);
-    }
+    // // // Parse images if provided as a string
+    // if (updateData.images && typeof updateData.images === "string") {
+    //   updateData.images = JSON.parse(updateData.images);
+    // }
+     updateData.images = JSON.parse(updateData.images);
+    
+    console.log(updateData?.images)
 
+    // return
     const room = await roomModel.findByIdAndUpdate(
       updateData?._id,
       { $set: updateData },
@@ -268,6 +272,7 @@ const updateRoomCtrl = async (req, res) => {
       room,
     });
   } catch (error) {
+    console.log(error)
     return res.status(500).json({
       success: false,
       message: "Error in updating room!",
