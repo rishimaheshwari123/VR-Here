@@ -3,12 +3,10 @@ import { imageUpload, updateRoom } from "../../service/operations/room";
 import { useSelector } from "react-redux";
 import Dropzone from "react-dropzone";
 
-
 const RoomEditModal = ({ isOpen, onClose, room, onSave }) => {
   const [editableRoom, setEditableRoom] = useState(room);
-  const { token } = useSelector(state => state.auth);
+  const { token } = useSelector((state) => state.auth);
   const [images, setImages] = useState(room?.images || []);
-
 
   useEffect(() => {
     setEditableRoom(room);
@@ -19,25 +17,19 @@ const RoomEditModal = ({ isOpen, onClose, room, onSave }) => {
     setEditableRoom({ ...editableRoom, [name]: value });
   };
 
-  const handleSave = async() => {
-
-    const arrayImage = JSON.stringify(images)
+  const handleSave = async () => {
+    const arrayImage = JSON.stringify(images);
     const updatedRoom = {
       ...editableRoom,
-      images:arrayImage,
-      _id:room?._id
+      images: arrayImage,
+      _id: room?._id,
     };
-
-
-    console.log(updatedRoom)
-   const response = await updateRoom(updatedRoom,token)
-   console.log(response)
+    console.log(updatedRoom);
+    const response = await updateRoom(updatedRoom, token);
+    console.log(response);
     onSave(editableRoom);
     onClose();
   };
-
-
-
 
   const uploadImage = async (acceptedFiles) => {
     const response = await imageUpload(acceptedFiles);
@@ -119,14 +111,17 @@ const RoomEditModal = ({ isOpen, onClose, room, onSave }) => {
               onChange={() =>
                 setEditableRoom({
                   ...editableRoom,
-                  foodAvailable: editableRoom.foodAvailable === "true" ? "false" : "true",
+                  foodAvailable:
+                    editableRoom.foodAvailable === "true" ? "false" : "true",
                 })
               }
               className="mr-2"
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Available For Boys/Girls:</label>
+            <label className="block text-gray-700">
+              Available For Boys/Girls:
+            </label>
             <select
               name="AvailableForBoysOrGirl"
               value={editableRoom.AvailableForBoysOrGirl || ""}
@@ -150,46 +145,48 @@ const RoomEditModal = ({ isOpen, onClose, room, onSave }) => {
             </select>
           </div>
 
-                 {/* Upload Image */}
-        <div className="space-y-2 my-10">
-          <label htmlFor="images" className="block font-medium text-gray-700">
-            Upload Image *
-          </label>
-          <Dropzone onDrop={uploadImage}>
-            {({ getRootProps, getInputProps }) => (
-              <section>
-                <div
-                  {...getRootProps()}
-                  className="border-2 border-dashed p-4 text-center cursor-pointer"
-                >
-                  <input {...getInputProps()} />
-                  <p>Drag 'n' drop some files here, or click to select files</p>
-                </div>
-                <aside className="mt-4">
-                  <h4>Uploaded Images</h4>
-                  <div className="grid grid-cols-3 gap-2">
-                    {images?.map((image) => (
-                      <div key={image.public_id} className="relative">
-                        <img
-                          src={image.url}
-                          alt="Uploaded"
-                          className="h- w-full object-cover"
-                        />
-                        <button
-                          type="button"
-                          onClick={() => removeImage(image.public_id)}
-                          className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded-full"
-                        >
-                          X
-                        </button>
-                      </div>
-                    ))}
+          {/* Upload Image */}
+          <div className="space-y-2 my-10">
+            <label htmlFor="images" className="block font-medium text-gray-700">
+              Upload Image *
+            </label>
+            <Dropzone onDrop={uploadImage}>
+              {({ getRootProps, getInputProps }) => (
+                <section>
+                  <div
+                    {...getRootProps()}
+                    className="border-2 border-dashed p-4 text-center cursor-pointer"
+                  >
+                    <input {...getInputProps()} />
+                    <p>
+                      Drag 'n' drop some files here, or click to select files
+                    </p>
                   </div>
-                </aside>
-              </section>
-            )}
-          </Dropzone>
-        </div>
+                  <aside className="mt-4">
+                    <h4>Uploaded Images</h4>
+                    <div className="grid grid-cols-3 gap-2">
+                      {images?.map((image) => (
+                        <div key={image.public_id} className="relative">
+                          <img
+                            src={image.url}
+                            alt="Uploaded"
+                            className="h- w-full object-cover"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => removeImage(image.public_id)}
+                            className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded-full"
+                          >
+                            X
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </aside>
+                </section>
+              )}
+            </Dropzone>
+          </div>
           <div className="flex justify-end">
             <button
               type="button"
