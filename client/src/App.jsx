@@ -26,8 +26,8 @@ function App() {
   return (
     <div className="">
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/vendor" element={<BecomeVendor />} />
+        {/* <Route path="/" element={<Home />} />
         <Route path="/pg-room" element={<PGRoom />} />
         <Route path="/pg-room/:id" element={<PGRoom />} />
         <Route path="/single-room/:slug" element={<SingleRoom />} />
@@ -40,7 +40,7 @@ function App() {
         <Route path="/term_condition" element={<TermsAndConditions />} />
         <Route path="/privacy_policy" element={<PrivacyPolicy />} />
 
-        <Route path="*" element={<Error />} />
+        <Route path="*" element={<Error />} /> */}
 
         <Route
           element={

@@ -13,7 +13,10 @@ const BecomeVendor = () => {
   return (
     <div className="relative overflow-y-hidden">
       <div className="flex justify-center my-4">
-        <Link className="px-4 py-2   text-white bg-black text-xl" to="/">
+        <Link
+          className="px-4 py-2   text-white bg-black text-xl"
+          to="https://www.vrhere.in"
+        >
           Home
         </Link>
 
