@@ -21,12 +21,15 @@ import SingleTifin from "./pages/SingleTifin";
 import Contact from "./pages/Contact";
 import TermsAndConditions from "./pages/Term&Condition";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import AdminPanel from "./pages/AdminPanel";
 
 function App() {
   return (
     <div className="">
       <Routes>
         <Route path="/vendor" element={<BecomeVendor />} />
+        <Route path="/" element={<AdminPanel />} />
+
         {/* <Route path="/" element={<Home />} />
         <Route path="/pg-room" element={<PGRoom />} />
         <Route path="/pg-room/:id" element={<PGRoom />} />
